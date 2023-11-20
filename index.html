@@ -3,15 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Massothérapeuthe à Thonon-les-Bains</title>
+    <title>Massothérapeute à Thonon-les-Bains</title>
     <link rel="stylesheet" href="./style.css" />
-    <script src="./script.js" />
+    <script src="./script.js" defer></script>
   </head>
   <body>
     <header class="header">
-      <h1 class="name">
-        Pierre Bernard - Massage, APA et réflexes archaïques à Thonon-les-Bains
-      </h1>
+      <h1 class="name">Pierre Bernard - Massothérapeute à Thonon-les-Bains</h1>
       <nav class="nav">
         <ul>
           <li><a href="#about">À propos</a></li>
@@ -25,14 +23,77 @@
               href="https://www.instagram.com/pierre_therapist/"
               target="_blank"
               ><img
-                src="assets/images/instagram.webp"
+                src="./assets/instagram.webp"
                 alt="Logo du réseau social Instagram"
             /></a>
           </li>
         </ul>
       </nav>
     </header>
-    <main class="main"></main>
+    <main class="main">
+      <section id="banner">
+        <img
+          class="banner-img"
+          src="./assets/img/seance-interieur.webp"
+          alt="Bannière de Pierre Bernard en séance"
+          aria-label="Slide"
+        />
+
+        <img
+          class="arrow arrow_right"
+          src="./assets/arrow-right.svg"
+          alt="Image d'une flèche indiquant vers la droite"
+        />
+
+        <img
+          class="arrow arrow_left"
+          src="./assets/arrow-left.svg"
+          alt="Image d'une flèche indiquant vers la gauche"
+        />
+
+        <div class="dots">
+          <i class="fa-solid fa-circle dot dot_selected"></i>
+          <i class="fa-solid fa-circle dot"></i>
+          <i class="fa-solid fa-circle dot"></i>
+          <i class="fa-solid fa-circle dot"></i>
+        </div>
+      </section>
+      <section id="about">
+        <div class="picture left">
+          <picture>
+            <source
+              srcset="/assets/img/seance-interieur.webp"
+              media="(max-width: 650px)"
+            />
+            <source
+              srcset="/assets/img/seance-interieur.webp"
+              media="(max-width: 1000px)"
+            />
+            <img
+              src="/assets/img/seance-interieur.webp"
+              class="d-block"
+              alt="Personnes dansant lors d'un concert"
+            />
+          </picture>
+        </div>
+        <div id="about-me">
+          <h2 class="about-me__title">A propos de moi</h2>
+          <h3 class="about-me__introduction">
+            Formé dans plusieurs domaines (massothérapie, activité physique
+            adaptée et santé, réflexes archaïques), je vous propose une approche
+            holistique du corps afin de mieux vous accompagner. Grand amateur de
+            sport, j’ai pu suivre de nombreux sportifs et entraineurs :
+            footballeurs, rugbymen, marathoniens, athlètes…, dans différents
+            contextes (pré et post compétition, post blessure, récupération,
+            prévention…). L’ensemble de mes expériences professionnelles m’ont
+            amené à accompagner tout autant Madame et Monsieur « tout le monde »
+            dans leurs recherches de mieux-être au quotidien. Altruiste, à
+            l’écoute et passionné par mon métier, j’espère pouvoir répondre à
+            vos attentes et vos besoins.
+          </h3>
+        </div>
+      </section>
+    </main>
     <footer class="footer"></footer>
   </body>
 </html>

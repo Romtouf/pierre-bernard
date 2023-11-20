@@ -1,0 +1,157 @@
+body {
+  max-width: 1920px;
+  margin: auto;
+}
+* {
+  font-family: "Inter";
+  font-style: normal;
+}
+:root {
+  --primary-color: #e3e3e3;
+  --secondary-color: #03224c;
+  --third-color: #583900;
+  --four-color: #f6f6f6;
+}
+.header {
+  background-color: var(--primary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 100px;
+  padding-block: 30px;
+  align-items: center;
+}
+.header .name {
+  font-size: 26px;
+}
+
+.nav ul {
+  display: flex;
+  list-style-type: none;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.nav li {
+  padding-inline: 10px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+}
+
+.social-link img {
+  width: 20px;
+}
+
+#banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 470px;
+  position: relative;
+}
+.banner-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  object-position: center;
+}
+/* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
+/* Gestion des fleches du carrousel */
+#banner .arrow {
+  position: absolute;
+}
+#banner .arrow_left {
+  left: 10px;
+  cursor: pointer;
+}
+#banner .arrow_right {
+  right: 10px;
+  cursor: pointer;
+}
+/* Gestion des points du carrousel */
+.dots {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+}
+.dot {
+  margin-inline: 5px;
+  width: 13px;
+  height: 13px;
+  background-color: #ffffff00;
+  border: 3px solid #fff;
+  border-radius: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.dot_selected {
+  background-color: #fff;
+}
+/* Fin du code CSS pour le carousel */
+#banner p {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 900;
+  font-size: 50px;
+  line-height: 66px;
+  color: white;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+#banner span {
+  display: block;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+#about {
+  display: flex;
+  background-color: #f7f7f7;
+  padding-inline: 100px;
+  padding-block: 100px;
+  position: relative;
+}
+
+.picture.left::before {
+  content: " ";
+  background-color: var(--secondary-color);
+  width: 374px;
+  height: 329px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.picture {
+  flex: 1;
+  margin: 0 20px;
+  z-index: 0;
+}
+
+.picture img {
+  width: 400px;
+  height: 400px;
+}
+
+#about-me {
+  flex: 2;
+}
+.about-me__title {
+  margin-top: 1em;
+  margin-bottom: 60px;
+  font-size: 30px;
+}
+.about-me__introduction {
+  font-family: "Spectral";
+  font-weight: 800;
+  font-style: italic;
+  width: 60%;
+}
