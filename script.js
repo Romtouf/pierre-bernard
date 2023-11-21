@@ -17,8 +17,8 @@ const slides = [
 let arrowLeft = document.querySelector(".arrow_left");
 let arrowRight = document.querySelector(".arrow_right");
 let bannerImage = document.querySelector(".banner-img");
-let bannerDots = document.querySelectorAll(".dot");
-let bannerSelected = document.querySelector(".dot_selected");
+// let bannerDots = document.querySelectorAll(".dot");
+// let bannerSelected = document.querySelector(".dot_selected");
 
 // Compteur pour le slide
 let affichageSlide = 0;
@@ -28,27 +28,27 @@ arrowLeft.addEventListener("click", () => {
   // alert("Ok pour la flèche de gauche");
 
   bannerContenu();
-  dotChangeOnClick();
+  // dotChangeOnClick();
   bannerBoucle(-1);
 });
 arrowRight.addEventListener("click", () => {
   // alert("Ok pour la flèche de droite");
 
   bannerContenu();
-  dotChangeOnClick();
+  // dotChangeOnClick();
   bannerBoucle(1);
 });
 
 // Changer le point affiché au clic
-function dotChangeOnClick() {
-  bannerDots.forEach((bullets, i) => {
-    bullets.classList.remove("dot_selected");
+// function dotChangeOnClick() {
+//   bannerDots.forEach((bullets, i) => {
+//     bullets.classList.remove("dot_selected");
 
-    if (i === affichageSlide) {
-      bullets.classList.add("dot_selected");
-    }
-  });
-}
+//     if (i === affichageSlide) {
+//       bullets.classList.add("dot_selected");
+//     }
+//   });
+// }
 
 // Intégrer le contenu du slider
 function bannerContenu() {

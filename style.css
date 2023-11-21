@@ -1,10 +1,11 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(./fonts/Montserrat-VariableFont_wght.ttf);
+}
 body {
   max-width: 1920px;
   margin: auto;
-}
-* {
-  font-family: "Montserrat";
-  font-style: normal;
+  font-family: "Montserrat", sans serif;
 }
 :root {
   --primary-color: #e3e3e3;
@@ -94,7 +95,7 @@ h3 {
   cursor: pointer;
 }
 /* Gestion des points du carrousel */
-.dots {
+/* .dots {
   position: absolute;
   bottom: 40px;
   display: flex;
@@ -110,7 +111,7 @@ h3 {
 }
 .dot_selected {
   background-color: #fff;
-}
+} */
 /* Fin du code CSS pour le carousel */
 #banner p {
   font-family: "Roboto Slab", sans-serif;
@@ -329,7 +330,9 @@ h3 {
   font-size: 22px;
 }
 
-.footer p {
+.footer a {
+  text-decoration: none;
   font-size: 18px;
   font-style: italic;
+  color: #000;
 }
