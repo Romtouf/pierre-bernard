@@ -3,7 +3,7 @@ body {
   margin: auto;
 }
 * {
-  font-family: "Inter";
+  font-family: "Montserrat";
   font-style: normal;
 }
 :root {
@@ -24,7 +24,7 @@ h2 {
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 18px;
 }
 
 .header {
@@ -196,14 +196,19 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
+  background: linear-gradient(
+    180deg,
+    rgba(227, 227, 227, 1) 0%,
+    rgba(88, 57, 0, 1) 50%
+  );
   margin: auto;
   position: relative;
 }
 
 #services .container::before {
   content: " ";
-  background-color: var(--third-color);
+  /* background-color: var(--third-color); */
   position: absolute;
   width: 100%;
   height: 30%;
@@ -215,12 +220,15 @@ h3 {
 #services .container {
   justify-content: space-between;
   display: flex;
-  padding: 2em 0;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 2em 50px;
+  /* margin: 0 20px; */
 }
 
 .service {
   background-color: white;
-  max-width: 390px;
+  max-width: 490px;
   width: 30%;
   height: 337px;
   padding: 1em;
@@ -233,9 +241,13 @@ h3 {
 }
 
 .service p {
-  font-size: 20px;
+  font-size: 18px;
 }
 
-.margin {
-  margin-bottom: 57px;
-}
+/* .margin {
+  margin-bottom: 41px;
+} */
+
+/* .margin-price h4 {
+  margin-bottom: -1px;
+} */
