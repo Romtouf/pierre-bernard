@@ -271,7 +271,7 @@ h3 {
 .contact__rdv img {
   height: 150px;
   border-radius: 150px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 .contact__mail {
@@ -284,35 +284,42 @@ h3 {
 
 .contact__mail h3 {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 0;
+}
+
+.contact__mail a {
+  text-decoration: none;
+  color: #000;
+}
+
+.contact__mail img {
+  height: 170px;
 }
 
 .right-container a {
   text-decoration: none;
   color: #000;
+  font-size: 18px;
+}
+
+.right-container p {
+  font-size: 18px;
+}
+
+.contact__adresse h3 {
+  margin-top: 0;
 }
 
 .contact__image img {
-  height: 200px;
+  height: 150px;
   border-radius: 10px;
-  margin-bottom: 49px;
-}
-
-.fa-solid {
-  color: #000;
-}
-
-.fa-envelope::before {
-  font-size: 80px;
-  background-color: white;
-  border: 8px solid black;
-  border-radius: 150px;
-  padding: 20px;
+  margin-bottom: 70px;
 }
 
 .footer {
   background-color: var(--primary-color);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -320,4 +327,9 @@ h3 {
 
 .footer h2 {
   font-size: 22px;
+}
+
+.footer p {
+  font-size: 18px;
+  font-style: italic;
 }
