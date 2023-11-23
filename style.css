@@ -28,6 +28,10 @@ h3 {
   font-size: 18px;
 }
 
+.display-none {
+  display: none;
+}
+
 .header {
   background-color: var(--primary-color);
   position: sticky;
@@ -38,6 +42,7 @@ h3 {
   padding-inline: 100px;
   padding-block: 30px;
   align-items: center;
+  border-bottom: 2px solid var(--secondary-color);
 }
 .header .name {
   font-size: 26px;
@@ -335,4 +340,46 @@ h3 {
   font-size: 18px;
   font-style: italic;
   color: #000;
+}
+
+@media (max-width: 1520px) {
+  .header {
+    padding-inline: 50px;
+  }
+
+  .service {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 1292px) {
+  .service {
+    max-width: 300px;
+  }
+
+  .picture img {
+    width: 300px;
+    height: 300px;
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 1269px) {
+  h1 {
+    text-align: center;
+  }
+
+  .display-none {
+    display: block;
+  }
+}
+
+@media (max-width: 1009px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .nav ul {
+    gap: 30px;
+  }
 }
