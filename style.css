@@ -475,7 +475,18 @@ h3 {
   }
 }
 
-@media (max-width: 535px) {
+@media (max-width: 568px) {
+  .name {
+    margin: 8px 0 10px 0;
+  }
+  .header .name {
+    font-size: 20px;
+  }
+
+  .header {
+    padding-inline: 20px;
+    padding: 5px;
+  }
   .about-me__introduction,
   .concept__introduction {
     font-size: 18px;
