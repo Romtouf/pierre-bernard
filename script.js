@@ -6,9 +6,6 @@ const slides = [
     image: "./assets/img/reflexe-voute.webp",
   },
   {
-    image: "./assets/img/reflexe-paume.webp",
-  },
-  {
     image: "./assets/img/manipulation-genou.webp",
   },
   {
