@@ -1,6 +1,5 @@
-@font-face {
-  font-family: "Montserrat";
-  src: url(./fonts/Montserrat-VariableFont_wght.ttf);
+* {
+  font-family: "Montserrat", sans-serif;
 }
 body {
   max-width: 1920px;
@@ -89,13 +88,6 @@ h3 {
   object-position: center;
 }
 
-/* .arrow_left,
-.arrow_right {
-  background-color: #03224c;
-  border-radius: 30px;
-  padding: 30px;
-} */
-
 #banner .arrow {
   position: absolute;
 }
@@ -136,7 +128,6 @@ h3 {
   font-size: 30px;
 }
 .about-me__introduction .concept__introduction {
-  font-family: "Spectral";
   font-weight: 800;
   font-style: italic;
   width: 60%;
@@ -153,22 +144,10 @@ h3 {
 #concept {
   display: flex;
   flex-direction: row-reverse;
-  /* background-color: white; */
   padding-inline: 100px;
   padding-block: 100px;
   position: relative;
   background-color: #eee9df;
-}
-
-.picture.right::before {
-  content: " ";
-  background-color: var(--secondary-color);
-  width: 374px;
-  height: 329px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
 }
 
 #services {
@@ -239,13 +218,6 @@ h3 {
   align-items: center;
 }
 
-.left-container .right-container {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .contact__rdv {
   display: flex;
