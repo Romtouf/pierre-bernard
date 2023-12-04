@@ -109,11 +109,10 @@ h3 {
 
 #about {
   display: flex;
-  /* background-color: var(--five-color); */
   padding-inline: 100px;
   padding-block: 100px;
   position: relative;
-  background-color: rgb(243, 228, 228);
+  background-color: rgb(198, 196, 196);
 }
 
 .d-block-one {
