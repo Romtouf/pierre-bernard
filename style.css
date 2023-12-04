@@ -68,6 +68,7 @@ h3 {
 
 .social-link img {
   width: 20px;
+  height: 20px;
 }
 
 #banner {
@@ -112,7 +113,7 @@ h3 {
   padding-inline: 100px;
   padding-block: 100px;
   position: relative;
-  background-color: rgb(198, 196, 196);
+  background-color: rgb(233, 231, 231);
 }
 
 .d-block-one {
@@ -255,6 +256,7 @@ h3 {
 
 .contact__rdv img {
   height: 150px;
+  width: 150px;
   border-radius: 150px;
   margin-bottom: 0px;
 }
@@ -301,6 +303,7 @@ h3 {
 }
 
 .contact__image img {
+  width: 200px;
   height: 150px;
   border-radius: 10px;
   margin-bottom: 70px;
