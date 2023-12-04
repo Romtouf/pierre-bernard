@@ -76,17 +76,24 @@ h3 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 470px;
+  min-height: 900px;
   position: relative;
+  background-color: #e6dac6;
 }
 .banner-img {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: -1;
   object-fit: cover;
   object-position: center;
 }
+
+/* .arrow_left,
+.arrow_right {
+  background-color: #03224c;
+  border-radius: 30px;
+  padding: 30px;
+} */
 
 #banner .arrow {
   position: absolute;
@@ -145,10 +152,11 @@ h3 {
 #concept {
   display: flex;
   flex-direction: row-reverse;
-  background-color: white;
+  /* background-color: white; */
   padding-inline: 100px;
   padding-block: 100px;
   position: relative;
+  background-color: #eee9df;
 }
 
 .picture.right::before {
@@ -275,6 +283,7 @@ h3 {
 
 .contact__mail img {
   height: 170px;
+  width: 170px;
 }
 
 .right-container a {
@@ -463,6 +472,10 @@ h3 {
     align-items: center;
     gap: 20px;
   }
+
+  #banner {
+    min-height: 500px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -504,6 +517,11 @@ h3 {
 
   .right-container p {
     font-size: 18px;
+  }
+}
+@media (max-width: 510px) {
+  #banner {
+    min-height: 400px;
   }
 }
 

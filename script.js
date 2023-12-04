@@ -1,15 +1,21 @@
 const slides = [
   {
-    image: "./assets/img/seance-interieur.webp",
+    image: "./assets/img/manipulation-cou.webp",
   },
   {
-    image: "./assets/img/bureau.webp",
+    image: "./assets/img/reflexe-voute.webp",
   },
   {
-    image: "./assets/img/seance-exterieur.webp",
+    image: "./assets/img/reflexe-paume.webp",
   },
   {
-    image: "./assets/img/table-massage.webp",
+    image: "./assets/img/manipulation-genou.webp",
+  },
+  {
+    image: "./assets/img/manipulation-pied.webp",
+  },
+  {
+    image: "./assets/img/manipulation-foot.webp",
   },
 ];
 
