@@ -102,16 +102,18 @@ const description = "Massothérapeute professionnel à Tassin la Demi-Lune, spé
 			<div class="container-custom text-center">
 				<h2 class="section-title">Prendre rendez-vous</h2>
 				<p class="section-subtitle">Scannez le QR code pour accéder directement à mon agenda en ligne</p>
-				<div class="max-w-xs mx-auto hover:scale-105 transition-transform duration-300">
-					<Image 
-						src={qrcode} 
-						alt="QR Code pour la prise de rendez-vous en ligne"
-						width={200}
-						height={200}
-						loading="lazy"
-						decoding="async"
-						class="rounded-lg shadow-warm"
-					/>
+				<div class="flex justify-center items-center">
+					<div class="w-48 hover:scale-105 transition-transform duration-300">
+						<Image 
+							src={qrcode} 
+							alt="QR Code pour la prise de rendez-vous en ligne"
+							width={200}
+							height={200}
+							loading="lazy"
+							decoding="async"
+							class="rounded-lg shadow-warm mx-auto"
+						/>
+					</div>
 				</div>
 			</div>
 		</section>

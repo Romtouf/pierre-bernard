@@ -29,11 +29,29 @@ const carouselImages = [
 ];
 ---
 
-<div class="carousel-wrapper w-full overflow-hidden">
+<div class="carousel-wrapper w-full overflow-hidden bg-f5f5f5">
     <section aria-label="Galerie des techniques de massage" class="relative w-full" id="carousel">
         <div class="relative group">
             <!-- Overlay gradient -->
             <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40 pointer-events-none z-10"></div>
+
+            <!-- Container des images -->
+            <div class="carousel-container">
+                {carouselImages.map((image, index) => (
+                    <div class="carousel-slide relative flex items-center justify-center h-[70vh]">
+                        <Image 
+                            src={image.src} 
+                            alt={image.alt}
+                            title={image.title}
+                            class="w-full h-[80vh] object-cover object-center transition-transform duration-700"
+                            width={1920}
+                            height={1080}
+                            loading={index === 0 ? "eager" : "lazy"}
+                            decoding="async"
+                        />
+                    </div>
+                ))}
+            </div>
 
             <!-- Flèche gauche -->
             <button 
@@ -45,25 +63,6 @@ const carouselImages = [
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                 </svg>
             </button>
-
-            <!-- Container des images -->
-            <div class="carousel-container">
-                {carouselImages.map((image, index) => (
-                    <div class="carousel-slide relative">
-                        <Image 
-                            src={image.src} 
-                            alt={image.alt}
-                            title={image.title}
-                            class="w-full h-[80vh] object-cover transition-transform duration-700"
-                            width={1200}
-                            height={675}
-                            densities={[1, 1.5, 2]}
-                            loading={index === 0 ? "eager" : "lazy"}
-                            decoding="async"
-                        />
-                    </div>
-                ))}
-            </div>
 
             <!-- Flèche droite -->
             <button 
