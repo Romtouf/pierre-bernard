@@ -1,0 +1,267 @@
+---
+import { Image } from 'astro:assets';
+import manipulationPied from '../assets/manipulation-pied.webp';
+import manipulationGenou from '../assets/manipulation-genou.webp';
+import manipulationFoot from '../assets/manipulation-foot.webp';
+import manipulationCou from '../assets/manipulation-cou.webp';
+
+const carouselImages = [
+    { 
+        src: manipulationPied, 
+        alt: "Manipulation du pied - Technique de massage thérapeutique à Tassin la Demi-Lune",
+        title: "Technique de manipulation du pied"
+    },
+    { 
+        src: manipulationGenou, 
+        alt: "Manipulation du genou - Soin thérapeutique à domicile dans l'Ouest Lyonnais",
+        title: "Technique de manipulation du genou"
+    },
+    { 
+        src: manipulationFoot, 
+        alt: "Massage du pied - Soin personnalisé à Tassin la Demi-Lune et environs",
+        title: "Technique de massage du pied"
+    },
+    { 
+        src: manipulationCou, 
+        alt: "Manipulation du cou - Thérapie manuelle à domicile Lyon et Ouest Lyonnais",
+        title: "Technique de manipulation du cou"
+    }
+];
+---
+
+<div class="carousel-wrapper w-full overflow-hidden">
+    <section aria-label="Galerie des techniques de massage" class="relative w-full" id="carousel">
+        <div class="relative group">
+            <!-- Overlay gradient -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40 pointer-events-none z-10"></div>
+
+            <!-- Flèche gauche -->
+            <button 
+                class="absolute left-8 top-1/2 -translate-y-1/2 z-20 p-5 rounded-full bg-sage-green/30 hover:bg-sage-green/50 backdrop-blur transition-all carousel-prev opacity-0 group-hover:opacity-100 focus:opacity-100 shadow-xl"
+                aria-label="Image précédente"
+                title="Voir l'image précédente"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-7 h-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+            </button>
+
+            <!-- Container des images -->
+            <div class="carousel-container">
+                {carouselImages.map((image, index) => (
+                    <div class="carousel-slide relative">
+                        <Image 
+                            src={image.src} 
+                            alt={image.alt}
+                            title={image.title}
+                            class="w-full h-[80vh] object-cover transition-transform duration-700"
+                            width={1200}
+                            height={675}
+                            densities={[1, 1.5, 2]}
+                            loading={index === 0 ? "eager" : "lazy"}
+                            decoding="async"
+                        />
+                    </div>
+                ))}
+            </div>
+
+            <!-- Flèche droite -->
+            <button 
+                class="absolute right-8 top-1/2 -translate-y-1/2 z-20 p-5 rounded-full bg-sage-green/30 hover:bg-sage-green/50 backdrop-blur transition-all carousel-next opacity-0 group-hover:opacity-100 focus:opacity-100 shadow-xl"
+                aria-label="Image suivante"
+                title="Voir l'image suivante"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-7 h-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Indicateurs -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-4 carousel-indicators z-30" role="tablist">
+            {carouselImages.map((image, index) => (
+                <button
+                    class={`w-2.5 h-2.5 rounded-full transition-all carousel-indicator ${
+                        index === 0 
+                        ? 'bg-sage-green scale-125 shadow-lg' 
+                        : 'bg-white/60 hover:bg-sage-green/90'
+                    }`}
+                    data-index={index}
+                    aria-label={`Aller à l'image ${index + 1}: ${image.title}`}
+                    role="tab"
+                    aria-selected={index === 0 ? "true" : "false"}
+                />
+            ))}
+        </div>
+    </section>
+</div>
+
+<style>
+    .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        background-color: #f5f5f5;
+    }
+
+    .carousel-container {
+        display: flex;
+        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 100%;
+    }
+
+    .carousel-slide {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    /* Animation des flèches */
+    .carousel-prev,
+    .carousel-next {
+        transform: translateY(-50%) scale(0.95);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .carousel-prev:hover,
+    .carousel-next:hover {
+        transform: translateY(-50%) scale(1.05);
+    }
+
+    /* Animation des indicateurs */
+    .carousel-indicator {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-indicator:hover {
+        transform: scale(1.2);
+    }
+
+    /* Variables de couleur personnalisées */
+    :root {
+        --sage-green: rgb(135, 150, 130);
+    }
+
+    .bg-sage-green {
+        background-color: var(--sage-green);
+    }
+
+    .hover\:bg-sage-green\/50:hover {
+        background-color: rgb(135 150 130 / 0.5);
+    }
+
+    .hover\:bg-sage-green\/90:hover {
+        background-color: rgb(135 150 130 / 0.9);
+    }
+</style>
+
+<script>
+    class Carousel {
+        private container: HTMLElement;
+        private slides: HTMLElement[];
+        private prevButton: HTMLElement;
+        private nextButton: HTMLElement;
+        private indicators: HTMLElement[];
+        private currentIndex: number = 0;
+        private isTransitioning: boolean = false;
+        private autoplayInterval: number | null = null;
+        private readonly autoplayDelay: number = 4000; // 4 secondes
+
+        constructor() {
+            this.container = document.querySelector('.carousel-container')!;
+            this.slides = Array.from(document.querySelectorAll('.carousel-slide'));
+            this.prevButton = document.querySelector('.carousel-prev')!;
+            this.nextButton = document.querySelector('.carousel-next')!;
+            this.indicators = Array.from(document.querySelectorAll('.carousel-indicator'));
+            
+            this.init();
+        }
+
+        private init(): void {
+            this.prevButton.addEventListener('click', () => this.prev());
+            this.nextButton.addEventListener('click', () => this.next());
+            
+            this.indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => this.goToSlide(index));
+            });
+
+            // Gestion du survol
+            const carousel = document.querySelector('.carousel-wrapper');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', () => this.pauseAutoplay());
+                carousel.addEventListener('mouseleave', () => this.startAutoplay());
+            }
+
+            // Navigation au clavier
+            document.addEventListener('keydown', (e: KeyboardEvent) => {
+                if (e.key === 'ArrowLeft') this.prev();
+                if (e.key === 'ArrowRight') this.next();
+            });
+
+            // Démarrage du défilement automatique
+            this.startAutoplay();
+            this.updateSlide();
+        }
+
+        private startAutoplay(): void {
+            if (this.autoplayInterval) return;
+            this.autoplayInterval = window.setInterval(() => this.next(), this.autoplayDelay);
+        }
+
+        private pauseAutoplay(): void {
+            if (this.autoplayInterval) {
+                window.clearInterval(this.autoplayInterval);
+                this.autoplayInterval = null;
+            }
+        }
+
+        private updateSlide(): void {
+            if (!this.container) return;
+            
+            const offset = -this.currentIndex * 100;
+            this.container.style.transform = `translateX(${offset}%)`;
+            
+            // Mise à jour des indicateurs
+            this.indicators.forEach((indicator, index) => {
+                if (index === this.currentIndex) {
+                    indicator.classList.add('bg-white', 'scale-125');
+                    indicator.classList.remove('bg-white/50');
+                    indicator.setAttribute('aria-selected', 'true');
+                } else {
+                    indicator.classList.remove('bg-white', 'scale-125');
+                    indicator.classList.add('bg-white/50');
+                    indicator.setAttribute('aria-selected', 'false');
+                }
+            });
+        }
+
+        private goToSlide(index: number): void {
+            if (this.isTransitioning || index === this.currentIndex) return;
+            
+            this.isTransitioning = true;
+            this.currentIndex = index;
+            this.updateSlide();
+            
+            setTimeout(() => {
+                this.isTransitioning = false;
+            }, 500);
+        }
+
+        public next(): void {
+            if (this.isTransitioning) return;
+            const nextIndex = (this.currentIndex + 1) % this.slides.length;
+            this.goToSlide(nextIndex);
+        }
+
+        public prev(): void {
+            if (this.isTransitioning) return;
+            const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+            this.goToSlide(prevIndex);
+        }
+    }
+
+    // Initialisation du carousel
+    document.addEventListener('DOMContentLoaded', () => {
+        new Carousel();
+    });
+</script> 

@@ -1,0 +1,44 @@
+/* tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-cream-50 text-primary-800;
+    }
+
+    h1, h2, h3, h4, h5 {
+        @apply font-serif text-primary-900;
+    }
+}
+
+@layer components {
+    .container-custom {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .section-padding {
+        @apply py-16 md:py-24;
+    }
+
+    .section-title {
+        @apply text-4xl md:text-5xl font-serif font-light tracking-wide mb-8 text-center;
+    }
+
+    .section-subtitle {
+        @apply text-xl text-primary-600 font-light mb-12 max-w-2xl mx-auto text-center;
+    }
+
+    .card {
+        @apply bg-white rounded-lg shadow-warm p-6;
+    }
+
+    .hover-lift {
+        @apply transition-transform duration-300 hover:-translate-y-1;
+    }
+
+    .gradient-text {
+        @apply bg-gradient-to-r from-primary-600 to-sage-500 bg-clip-text text-transparent;
+    }
+} 

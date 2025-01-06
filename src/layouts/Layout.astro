@@ -1,22 +1,152 @@
-<!doctype html>
-<html lang="en">
+---
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Pierre Bernard - Massothérapeute",
+	"image": "/og-image.webp",
+	"@id": "https://www.pierre-bernard.net",
+	"url": "https://www.pierre-bernard.net",
+	"telephone": "",
+	"email": "lesmainsduchablais@gmail.com",
+	"priceRange": "80€ - 90€",
+	"description": description,
+	"address": {
+		"@type": "PostalAddress",
+		"addressLocality": "Tassin la Demi-Lune",
+		"addressRegion": "Rhône-Alpes",
+		"addressCountry": "FR"
+	},
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "45.7639",
+		"longitude": "4.7778"
+	},
+	"areaServed": [
+		{
+			"@type": "City",
+			"name": "Lyon 9"
+		},
+		{
+			"@type": "City",
+			"name": "Tassin la Demi-Lune"
+		},
+		{
+			"@type": "City",
+			"name": "Ecully"
+		},
+		{
+			"@type": "City",
+			"name": "Dardilly"
+		}
+	],
+	"sameAs": [
+		"https://www.instagram.com/pierre_therapist/"
+	],
+	"openingHoursSpecification": {
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": [
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday"
+		],
+		"opens": "08:00",
+		"closes": "20:00"
+	},
+	"service": [
+		{
+			"@type": "Service",
+			"name": "Accompagnement Spécifique",
+			"description": "Séance personnalisée selon vos besoins"
+		},
+		{
+			"@type": "Service",
+			"name": "Drainage Lymphatique-DVTM",
+			"description": "Technique douce pour stimuler la circulation lymphatique"
+		},
+		{
+			"@type": "Service",
+			"name": "Massage Sportif",
+			"description": "Préparation et récupération pour les sportifs"
+		}
+	]
+};
+---
+
+<!DOCTYPE html>
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
+		<!-- Préchargement des polices -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&display=swap" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
+		<noscript>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&display=swap" />
+		</noscript>
+		
+		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- SEO Optimisations -->
+		<meta name="robots" content="index, follow">
+		<meta name="author" content="Pierre Bernard">
+		<meta name="keywords" content="massage, thérapie, Tassin la demi-lune, Lyon 9, Ecully, Dardilly, massage à domicile, bien-être, thérapie manuelle">
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/og-image.webp" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="/og-image.webp" />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href={Astro.url} />
+
+		<!-- JSON-LD -->
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+		<ViewTransitions />
+
+		<!-- Favicons et manifeste -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="theme-color" content="#687971" />
 	</head>
-	<body>
+	<body class="min-h-screen bg-white">
 		<slot />
+		<style is:global>
+			@tailwind base;
+			@tailwind components;
+			@tailwind utilities;
+		</style>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

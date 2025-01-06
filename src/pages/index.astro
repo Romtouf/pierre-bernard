@@ -1,11 +1,142 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Carousel from '../components/Carousel.astro';
+import { Image } from 'astro:assets';
+import qrcode from '../assets/qrcode.webp';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = "Pierre Bernard - Massothérapeute à Tassin la Demi-Lune";
+const description = "Massothérapeute professionnel à Tassin la Demi-Lune, spécialisé dans le massage à domicile. Services : accompagnement spécifique, drainage lymphatique-DVTM, massage sportif et bien-être. Intervention sur Lyon 9, Tassin la Demi-Lune, Ecully et Dardilly.";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={title} description={description}>
+	<!-- Carousel en pleine largeur -->
+	<Carousel />
+
+	<main class="bg-cream-50">
+		<!-- Introduction -->
+		<section class="container-custom section-padding">
+			<h1 class="section-title text-center">
+				<span class="gradient-text">Massothérapeute Professionnel</span>
+				<br />à Tassin la Demi-Lune
+			</h1>
+			<p class="section-subtitle">
+				Spécialisé dans le massage à domicile, j'interviens dans l'Ouest Lyonnais pour votre bien-être
+			</p>
+		</section>
+
+		<!-- Services -->
+		<section class="bg-white section-padding">
+			<div class="container-custom">
+				<h2 class="section-title text-center">Mes Services</h2>
+				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<div class="card hover-lift">
+						<div class="h-2 bg-primary-500 rounded-t-lg -mt-6 -mx-6 mb-6"></div>
+						<h3 class="text-xl font-serif mb-4 text-primary-700">Accompagnement Spécifique</h3>
+						<p class="text-primary-600">Séance personnalisée selon vos besoins, adaptée à votre condition et vos objectifs.</p>
+					</div>
+					<div class="card hover-lift">
+						<div class="h-2 bg-sage-500 rounded-t-lg -mt-6 -mx-6 mb-6"></div>
+						<h3 class="text-xl font-serif mb-4 text-primary-700">Drainage Lymphatique-DVTM</h3>
+						<p class="text-primary-600">Technique douce pour stimuler la circulation lymphatique et favoriser l'élimination des toxines.</p>
+					</div>
+					<div class="card hover-lift">
+						<div class="h-2 bg-cream-500 rounded-t-lg -mt-6 -mx-6 mb-6"></div>
+						<h3 class="text-xl font-serif mb-4 text-primary-700">Massage Sportif</h3>
+						<p class="text-primary-600">Préparation et récupération pour les sportifs, adapté à votre pratique et vos objectifs.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Tarifs -->
+		<section class="section-padding bg-gradient-to-b from-cream-50 to-cream-100">
+			<div class="container-custom">
+				<h2 class="section-title text-center">Tarifs</h2>
+				<div class="max-w-xl mx-auto">
+					<div class="card mb-6">
+						<div class="flex justify-between items-center">
+							<div>
+								<h3 class="text-xl font-serif text-primary-700">Premier rendez-vous</h3>
+								<p class="text-primary-500 mt-1">Séance découverte</p>
+							</div>
+							<span class="text-2xl font-serif text-primary-800">90€</span>
+						</div>
+					</div>
+					<div class="card">
+						<div class="flex justify-between items-center">
+							<div>
+								<h3 class="text-xl font-serif text-primary-700">Séances suivantes</h3>
+								<p class="text-primary-500 mt-1">Durée : 60 minutes</p>
+							</div>
+							<span class="text-2xl font-serif text-primary-800">80€</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Zone d'intervention -->
+		<section class="section-padding bg-white">
+			<div class="container-custom">
+				<h2 class="section-title text-center">Zone d'Intervention</h2>
+				<p class="section-subtitle">Je me déplace à domicile dans les secteurs suivants :</p>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+					<div class="card bg-primary-100 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-white text-center">
+						<h3 class="text-lg font-serif text-primary-700">Lyon 9</h3>
+					</div>
+					<div class="card bg-primary-100 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-white text-center">
+						<h3 class="text-lg font-serif text-primary-700">Tassin la Demi-Lune</h3>
+					</div>
+					<div class="card bg-primary-100 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-white text-center">
+						<h3 class="text-lg font-serif text-primary-700">Ecully</h3>
+					</div>
+					<div class="card bg-primary-100 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-white text-center">
+						<h3 class="text-lg font-serif text-primary-700">Dardilly</h3>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Prendre rendez-vous -->
+		<section class="section-padding bg-gradient-to-b from-cream-50 to-cream-100">
+			<div class="container-custom text-center">
+				<h2 class="section-title">Prendre rendez-vous</h2>
+				<p class="section-subtitle">Scannez le QR code pour accéder directement à mon agenda en ligne</p>
+				<div class="max-w-xs mx-auto hover:scale-105 transition-transform duration-300">
+					<Image 
+						src={qrcode} 
+						alt="QR Code pour la prise de rendez-vous en ligne"
+						width={200}
+						height={200}
+						loading="lazy"
+						decoding="async"
+						class="rounded-lg shadow-warm"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact -->
+		<section class="section-padding bg-gradient-to-b from-cream-50 to-cream-100">
+			<div class="container-custom text-center">
+				<h2 class="section-title">Contact</h2>
+				<div class="space-y-6 max-w-xl mx-auto">
+					<a href="mailto:lesmainsduchablais@gmail.com" class="card flex items-center justify-center space-x-3 hover-lift" aria-label="Envoyer un email pour prendre rendez-vous">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+						</svg>
+						<span class="text-primary-700">lesmainsduchablais@gmail.com</span>
+					</a>
+					<a href="https://www.instagram.com/pierre_therapist/" target="_blank" rel="noopener noreferrer" class="card flex items-center justify-center space-x-3 hover-lift" aria-label="Suivez Pierre Bernard Massothérapeute sur Instagram">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8a4 4 0 014-4h8a4 4 0 014 4v8a4 4 0 01-4 4H8a4 4 0 01-4-4V8z"/>
+							<circle cx="12" cy="12" r="3" stroke-width="2"/>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 7.5v.001"/>
+						</svg>
+						<span class="text-primary-700">Suivez-moi sur Instagram @pierre_therapist</span>
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
 </Layout>
